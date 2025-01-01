@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Nabvar from "@/components/ui/Nabar/Nabvar";
+import Nabvar from "@/components/Nabar/Nabvar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

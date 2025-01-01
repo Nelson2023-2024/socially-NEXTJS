@@ -1,10 +1,12 @@
 import { currentUser } from "@clerk/nextjs/server";
 import React from "react";
-import ThemeToggle from "../ThemeToggle";
-import { Button } from "../button";
+
+
 import Link from "next/link";
 import { BellIcon, HomeIcon, UserIcon } from "lucide-react";
 import { SignInButton, UserButton } from "@clerk/nextjs";
+import ThemeToggle from "../ui/ThemeToggle";
+import { Button } from "../ui/button";
 
 const DesktopNavbar = async () => {
   const user = await currentUser();

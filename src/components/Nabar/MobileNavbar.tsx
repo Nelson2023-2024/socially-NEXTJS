@@ -3,7 +3,6 @@
 import { SignInButton, SignOutButton, useAuth } from "@clerk/nextjs";
 import { useTheme } from "next-themes";
 import React, { useState } from "react";
-import { Button } from "../button";
 import {
   BellIcon,
   HomeIcon,
@@ -13,14 +12,10 @@ import {
   SunIcon,
   UserIcon,
 } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../sheet";
+
 import Link from "next/link";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Button } from "../ui/button";
 
 const MobileNavbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
