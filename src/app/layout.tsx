@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import {Toaster} from 'react-hot-toast'
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -54,6 +55,7 @@ export default function RootLayout({
                 </div>
               </main>
             </div>
+            <Toaster/>
           </ThemeProvider>
         </body>
       </html>

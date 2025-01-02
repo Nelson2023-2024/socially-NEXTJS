@@ -7,6 +7,8 @@ import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { ImageIcon, Loader2Icon, SendIcon } from "lucide-react";
+import { createPost } from "@/actions/post.action";
+import toast from "react-hot-toast";
 
 const CreatePost = () => {
   const { user } = useUser(); //Returns the current auth state and if a user is signed in, the user object.
@@ -16,7 +18,28 @@ const CreatePost = () => {
   const [isPosting, setisPosting] = useState(false);
   const [showImageUpload, setShowImageUpload] = useState(false);
 
-  async function handleSubmit() {}
+  async function handleSubmit() {
+    if (!content.trim() && !imageUrl) return;
+
+    setisPosting(true);
+    try {
+      const result = await createPost(content, imageUrl);
+
+      //if value is posted reset everthing
+      if (result.success) {
+        setContent("");
+        setImageUrl("");
+        setShowImageUpload(false);
+
+        toast.success("Post created successfully");
+      }
+    } catch (error) {
+      console.error("Failed to create post:", error);
+      toast.error("Failed to create post");
+    } finally {
+      setisPosting(false);
+    }
+  }
 
   return (
     <Card className="mb-6">
